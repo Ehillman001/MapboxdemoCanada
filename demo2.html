@@ -23,7 +23,7 @@
         center: [-100.0, 50.0]
     });
     // Modify this to place your own map service URL here. Show one or more provinces--do not just show Ontario like this example. 
-    var url = 'http://ehgeom99.duckdns.org/arcgis/rest/services/EHillmanCanada/MapServer/export?bbox=2706728.948051773%2C430201.3561449996%2C9998446.694748223%2C5471226.440955&bboxSR=&layers=&layerDefs=&size=&imageSR=&historicMoment=&format=png&transparent=false&dpi=&time=&layerTimeOptions=&dynamicLayers=&gdbVersion=&mapScale=&rotation=&datumTransformations=&layerParameterValues=&mapRangeValues=&layerRangeValues=&clipping=&spatialFilter=&f=html';
+    var url = 'http://ehgeom99.duckdns.org/arcgis/rest/services/EHillmanCanada/MapServer/export?bbox=2706728.948051773%2C430201.3561449996%2C9998446.694748223%2C5471226.440955&bboxSR=&layers=&layerDefs=&size=&imageSR=&historicMoment=&format=png&transparent=true&dpi=&time=&layerTimeOptions=&dynamicLayers=&gdbVersion=&mapScale=&rotation=&datumTransformations=&layerParameterValues=&mapRangeValues=&layerRangeValues=&clipping=&spatialFilter=&f=html';
     map.on('load', function() {
         window.setInterval(function() {
             map.getSource('canada').setData(url);
