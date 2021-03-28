@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<html style="transition: background-color 0.15s ease 0s;"><head>
+<meta charset="utf-8">
+<title>Geom99: Add ArcGIS Map Service source</title>
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+<script src="https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.js"></script>
+<link href="https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.css" rel="stylesheet">
+<style>
+	body { margin: 0; padding: 0; }
+	#map { position: absolute; top: 0; bottom: 0; width: 100%; }
+</style>
+<style>html > div ~ div:last-of-type { display: none !important }</style><link rel="stylesheet" type="text/css" href="chrome-extension://fleenceagaplaefnklabikkmocalkcpo/assets/fonts/MyFontsWebfontsKit.css"></head>
+<body>
+<div id="map" class="mapboxgl-map"><div class="mapboxgl-canary" style="visibility: hidden;"></div><div class="mapboxgl-canvas-container mapboxgl-interactive mapboxgl-touch-drag-pan mapboxgl-touch-zoom-rotate"><canvas class="mapboxgl-canvas" tabindex="0" aria-label="Map" width="800" height="536" style="position: absolute; width: 400px; height: 268px;"></canvas></div><div class="mapboxgl-control-container"><div class="mapboxgl-ctrl-top-left"></div><div class="mapboxgl-ctrl-top-right"></div><div class="mapboxgl-ctrl-bottom-left"><div class="mapboxgl-ctrl" style="display: block;"><a class="mapboxgl-ctrl-logo" target="_blank" rel="noopener nofollow" href="https://www.mapbox.com/" aria-label="Mapbox logo"></a></div></div><div class="mapboxgl-ctrl-bottom-right"><div class="mapboxgl-ctrl mapboxgl-ctrl-attrib mapboxgl-compact"><div class="mapboxgl-ctrl-attrib-inner"><a href="https://www.mapbox.com/about/maps/" target="_blank">© Mapbox</a> <a href="http://www.openstreetmap.org/about/" target="_blank">© OpenStreetMap</a> <a class="mapbox-improve-map" href="https://apps.mapbox.com/feedback/?owner=mapbox&amp;id=light-v10&amp;access_token=pk.eyJ1Ijoic2hhd25tZmxlbWluZ2MiLCJhIjoiY2p2cW54OWd6MHBsNTQzbW82eGdoMnhiayJ9.J0aHRw_EPtUzVsp0aEIS1g" target="_blank" rel="noopener nofollow">Improve this map</a></div></div></div></div></div>
+<script>
+	// Modified example from this source: https://docs.mapbox.com/mapbox-gl-js/example/wms/
+	mapboxgl.accessToken = 'pk.eyJ1IjoiZWR5bmgiLCJhIjoiY2ttdGxxZjY1MHBkMzJ3bzV0M2R1MnhiYSJ9.JORgPWvjOxWoO9tlLIQm-w';
+    var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/edynh/ckmtnu9mr479517pqn5giajau',
+        zoom: 3,
+        center: [-100.0, 50.0]
+    });
+
+    map.on('load', function() {
+        map.addSource('wms-test-source', {
+            'type': 'raster',
+            'tiles': [
+                'http://ehgeom99.duckdns.org/arcgis/rest/services/EHillmanCanada/MapServer/export?bbox=2706728.948051773%2C430201.3561449996%2C9998446.694748223%2C5471226.440955&bboxSR=&layers=&layerDefs=&size=&imageSR=&historicMoment=&format=png&transparent=false&dpi=&time=&layerTimeOptions=&dynamicLayers=&gdbVersion=&mapScale=&rotation=&datumTransformations=&layerParameterValues=&mapRangeValues=&layerRangeValues=&clipping=&spatialFilter=&f=html'
+            ],
+            'tileSize': 256
+        });
+        map.addLayer(
+            {
+                'id': 'wms-test-layer',
+                'type': 'raster',
+                'source': 'wms-test-source',
+                'paint': {}
+            },
+            'aeroway-line'
+        );
+    });
+</script>
+
+
+
+</body><screen-shader style="display: block; transition: none 0s ease 0s; margin: 0px; padding: 0px; border-radius: 0px; border: none; outline: none; visibility: visible; max-height: none; max-width: none; clip: unset; overflow: visible; opacity: 1;"><!--This is an element that contains all the html for the screen shader extension to work--><div style="display: block; transition: none 0s ease 0s; margin: 0px; padding: 0px; border-radius: 0px; border: none; outline: none; visibility: visible; max-height: none; max-width: none; clip: unset; overflow: visible; opacity: 0; position: fixed; inset: -10%; width: auto; height: auto; z-index: 2147483646; background: black;"></div><div style="display: block; transition: none 0s ease 0s; margin: 0px; padding: 0px; border-radius: 0px; border: none; outline: none; visibility: visible; max-height: none; max-width: none; clip: unset; overflow: visible; opacity: 1; position: fixed; inset: -10%; width: auto; height: auto; z-index: 2147483645; background: rgba(245, 83, 83, 0.25); mix-blend-mode: multiply;"></div><style>screen-shader{pointer-events: none !important;z-index: auto !important;}</style><style></style><html style="display: block; transition: none 0s ease 0s; margin: 0px; padding: 0px; border-radius: 0px; border: none; outline: none; visibility: visible; max-height: none; max-width: none; clip: unset; overflow: visible; opacity: 1; position: fixed; inset: -10%; width: auto; height: auto; z-index: -2147483647;"></html><div style="display: block; transition: none 0s ease 0s; margin: 0px; padding: 0px; border-radius: 0px; border: none; outline: none; visibility: visible; max-height: none; max-width: none; clip: unset; overflow: visible; opacity: 1; position: fixed; inset: -10%; width: auto; height: auto; z-index: -2147483646; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);"></div></screen-shader></html>
